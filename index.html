@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワタシタビ</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loaders.css@0.1.2/loaders.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+
+<!-- ハンバーガー本体 -->
+<div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- <nav class="nav-menu" id="navMenu">
+    <ul>
+        <li><a href="index.html">ワタシタビ</a></li>
+        <li class="menu-label">心に残る旅先</li>
+        <li><a href="hokkaido.html">北海道</a></li>
+        <li><a href="ehimeken.html">愛媛県</a></li>
+        <li><a href="kagosimaken.html">鹿児島県</a></li>
+        <li><a href="kannkoku.html">韓国</a></li>
+    </ul>
+</nav> -->
+
+<nav class="nav-menu" id="navMenu">
+    <ul>
+    <li><a href="index.html">ワタシタビ</a></li>
+    <li class="menu-label">心に残る旅先</li>
+    <li><a href="hokkaido.html" class="menu-item" data-map="hokkaido">北海道</a></li>
+    <li><a href="ehimeken.html" class="menu-item" data-map="ehime">愛媛県</a></li>
+    <li><a href="kagosimaken.html" class="menu-item" data-map="kagoshima">鹿児島県</a></li>
+    <li><a href="kannkoku.html" class="menu-item" data-map="korea">韓国</a></li>
+    </ul>
+</nav>
+
+<div class="map-image-container">
+    <img id="hover-map-image" src="" alt="地図プレビュー">
+</div>
+
+    <div class="loader df aic jcc">
+        <div>
+        <h1>Loading</h1>
+        <h2 class="loader--text">0%</h2>
+        </div>
+    </div>
+
+<!-- メイン -->
+<div class="demo-wrapper">
+    <header class="hero">
+    <div class="title-wrapper">
+        <h1 class="site-title">ワタシタビ</h1>
+        <h2 class="main-title-sub">記憶に残る、風景と感情。</h2>
+    </div>
+    </header>
+
+<section class="landscape">
+    <img src="./img/machi.svg" alt="町の風景" class="fade-up">
+    <img src="./img/machi.svg" alt="町の風景" class="fade-up">
+    <img src="./img/machi.svg" alt="町の風景" class="fade-up">
+</section>
+
+    <section class="demo-text demo-gallery">
+    <div class="wrapper text">WELCOME TO MY JOURNEY</div>
+    </section>
+</div>
+    <!-- ギャラリー1 -->
+<section class="demo-gallery">
+    <ul class="wrapper">
+    <li><img src="img/top1.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top2.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top3.jpg" width="1240" height="874" /></li>
+    </ul>
+</section>
+
+<!-- ギャラリー2 -->
+<section class="demo-gallery">
+    <ul class="wrapper">
+    <li><img src="img/top4.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top5.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top6.jpg" width="1240" height="874" /></li>
+    </ul>
+</section>
+
+<!-- ギャラリー3 -->
+<section class="demo-gallery">
+    <ul class="wrapper">
+    <li><img src="img/top7.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top8.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top9.jpg" width="1240" height="874" /></li>
+    </ul>
+</section>
+
+<!-- ギャラリー4 -->
+<section class="demo-gallery">
+    <ul class="wrapper">
+    <li><img src="img/top10.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top11.jpg" width="1240" height="874" /></li>
+    <li><img src="img/top12.jpg" width="1240" height="874" /></li>
+    </ul>
+</section>
+
+<section class="demo-text">
+    <div class="wrapper text">THANK YOU FOR WATCHING</div>
+</section>
+
+<section class="intro" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500">
+    <p>「どこに行こう？どこに泊まろう？何をしよう？何食べよう？」<br>
+    計画している時間から、心を弾ませてくれるのも旅のひとつの魅力。<br>
+    私にとって、旅はいつも特別な体験です。<br><br>
+    父が旅行会社で働いていることもあり、幼い頃からたくさんの場所へ連れて行ってもらいました。<br>
+    その影響もあって、今でも旅は私の人生を豊かにしてくれます。<br>
+    このサイトでは、そんな私の旅の記録をまとめています。<br>
+    写真と、少しの言葉で綴る”旅のきろく”。どうぞご覧ください✈️</p>
+</section>
+
+<section class="places-intro" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
+    <h2 class="section-title">心に残る旅先</h2>
+    <p class="section-description">
+        訪れた旅先の中でも、特に印象に残っている場所をまとめました。<br>
+        写真と一緒に、旅の記憶を感じてもらえたら嬉しいです。
+    </p>
+</section>
+
+<section class="places">
+<a href="hokkaido.html" class="place-card hokkaido" data-aos="fade-up">
+    <div class="img daytime"></div>
+    <div class="img nighttime"></div>
+    <span class="place-name">北海道</span>
+</a>
+<a href="ehimeken.html" class="place-card ehimeken" data-aos="fade-up">
+    <div class="img daytime"></div>
+    <div class="img nighttime"></div>
+    <span class="place-name">愛媛県</span>
+</a>
+<a href="kagosimaken.html" class="place-card kagosimaken" data-aos="fade-up">
+    <div class="img daytime"></div>
+    <div class="img nighttime"></div>
+    <span class="place-name">鹿児島県</span>
+</a>
+<a href="kannkoku.html" class="place-card kannkoku" data-aos="fade-up">
+    <div class="img daytime"></div>
+    <div class="img nighttime"></div>
+    <span class="place-name">韓国</span>
+</a>
+</section>
+
+<footer class="df aic jcc">
+    <p>&copy; 2025 ワタシタビ | All Rights Reserved</p>
+</footer>
+</div>
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+<script src="main.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
+
+<!-- ホーム画面下の空白、動くアニメーション、最悪止まってもいい。ハンバーガーメニュー、ホバー吹き出しで日本地図、北海道ひかる -->

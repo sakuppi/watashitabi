@@ -1,0 +1,802 @@
+:root { font-size: 16px; }
+@media (max-width: 500px) {
+    :root { font-size: 14px; }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    background: #f0f0f0;
+}
+
+ul {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+li {
+    flex-shrink: 0;
+    width: clamp(500px, 60vw, 800px);
+    padding-right: 1rem;
+}
+
+header.hero {
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+footer {
+    height: 50vh;
+    text-align: center;
+}
+
+h1 { font-size: 5rem; }
+h2 { font-size: 2rem; }
+
+:any-link { color: #4e9815; }
+
+.df { display: flex; }
+.aic { align-items: center; }
+.jcc { justify-content: center; }
+
+.loader {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: black;
+    color: white;
+    z-index: 9999;
+}
+
+.demo-wrapper {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.demo-gallery:not(.last) {
+    padding-bottom: 1rem;
+}
+
+.demo-text .text {
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 1;
+    font-weight: 900;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.photo-parallax {
+    overflow: hidden;
+    position: relative;
+    }
+
+.photo-parallax img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    }
+
+.photo-block p {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.site-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin: 0;
+}
+
+.main-title-sub {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.site-title.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sub-header {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 1rem;
+    color: #6486EC;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: opacity 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: left;
+}
+
+.back-wrapper {
+    text-align: left;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.intro, .places {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 1rem;
+}
+
+.intro {
+    margin-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+}
+
+.intro p {
+    line-height: 2;
+}
+
+.places-intro {
+    background: linear-gradient(to bottom, #f5f5f5 0%, #ffffff 100%);
+    padding: 5rem 1rem 3rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.9;
+}
+
+.place-card {
+    aspect-ratio: 4 / 2;
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+}
+
+.places {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lead-text{
+    display: block;
+    max-width: 40rem;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    word-break: normal;
+    line-break: strict;
+    text-wrap: pretty;
+}
+
+.pc-lines .line{
+    display: block;
+    white-space: nowrap;
+    margin-inline: auto;
+}
+
+.photo-block p.lead-text{
+    text-align: center;
+    word-break: normal;
+}
+
+.sp-gap {
+    display: block;
+    height: 0.45em;
+}
+
+@media (max-width: 480px) {
+    .places {
+    padding: 1.5rem 1rem;
+    }
+}
+
+/* 共通 */
+.place-card .daytime,
+.place-card .nighttime {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 0.5s ease;
+}
+
+.place-card .nighttime {
+    opacity: 0;
+    z-index: 2;
+}
+.place-card .daytime {
+    z-index: 1;
+}
+
+.place-card:hover .nighttime {
+    opacity: 1;
+}
+
+.place-card.hokkaido .daytime {
+    background-image: url('./img/hokkaido_day.jpg');
+}
+.place-card.hokkaido .nighttime {
+    background-image: url('./img/hokkaido_night.jpg');
+}
+
+.place-card.ehimeken .daytime {
+    background-image: url('./img/ehime_day.jpg');
+}
+.place-card.ehimeken .nighttime {
+    background-image: url('./img/ehime_night.jpg');
+}
+
+.place-card.kagosimaken .daytime {
+    background-image: url('./img/amami_day.jpg');
+}
+.place-card.kagosimaken .nighttime {
+    background-image: url('./img/amami_night.jpg');
+}
+
+.place-card.kannkoku .daytime {
+    background-image: url('./img/kankoku_day.jpg');
+}
+.place-card.kannkoku .nighttime {
+    background-image: url('./img/kankoku_night.jpg');
+}
+
+.place-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 50%);
+    z-index: 1;
+}
+
+.place-name {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.sub-header {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.hokkaido,
+.ehimeken,
+.kannkoku,
+.kagosimaken {
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #2e2e2e;
+    margin: 4rem 0 1.5rem;
+}
+
+.sub-title span {
+    display: block;
+    font-size: 1rem;
+    color: #999;
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.photo-block {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: #fff;
+    border: 1.5px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.photo-block img {
+    width: 100%;
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.photo-block p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* ハンバーガーアイコン */
+.hamburger {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.photo-container {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    margin: 4rem auto;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+  /* メニュー本体 */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+    transition: right 0.4s ease;
+    padding: 3rem 2rem;
+    z-index: 1000;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-bottom: 1.2rem;
+}
+
+.nav-menu ul li a {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    color: #333;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu .menu-label {
+    font-size: 1rem;
+    color: #999;
+    pointer-events: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+  /* メニューを表示させるクラス */
+.nav-menu.active {
+    right: 0;
+}
+
+/* overlay 背景 */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+  /* ハンバーガー → × に変形 */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+  /* メニューの各liにふわっと感 */
+.nav-menu ul li {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.nav-menu.active ul li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+  /* 遅延を設定（順番に表示） */
+    .nav-menu.active ul li:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.active ul li:nth-child(2) { transition-delay: 0.2s; }
+    .nav-menu.active ul li:nth-child(3) { transition-delay: 0.3s; }
+    .nav-menu.active ul li:nth-child(4) { transition-delay: 0.4s; }
+    .nav-menu.active ul li:nth-child(5) { transition-delay: 0.5s; }
+    .nav-menu.active ul li:nth-child(6) { transition-delay: 0.6s; }
+
+  /* ナビ内リンクに微アニメ */
+.nav-menu ul li a {
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: #333;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    opacity: 0.6;
+}
+
+#hover-map-image {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: auto;
+    background-color: white;
+    z-index: 9999;
+    opacity: 1;
+    display: block;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#hover-map-image.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.map-image-container {
+    position: relative;
+}
+
+body.nav-open .map-image-container {
+    display: flex;
+}
+
+.landscape {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem 0;
+    max-width: 100%;
+}
+
+.landscape img {
+    width: 30%;
+    height: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+    background: transparent;
+}
+
+.landscape img.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 初期は必ず隠す＋空srcも隠す（alt 文字を出させない） */
+#hover-map-image,
+#hover-map-image[src=""],
+#hover-map-image:not([src]) {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* 見せたい時だけ付けるクラス */
+#hover-map-image.is-visible {
+    display: block !important;
+    opacity: 1 !important;
+    transition: opacity .3s;
+  pointer-events: none; /* クリックを邪魔しない */
+}
+
+
+@media (max-width: 767px) {
+.wrapper {
+    width: 100% !important;
+    overflow-x: hidden;
+    display: block !important;
+}
+
+.demo-gallery {
+    padding: 0 !important;
+    margin: 0 auto;
+}
+
+.demo-gallery .wrapper {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.demo-gallery li {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 1.5rem;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.demo-gallery img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: unset !important;
+    display: block !important;
+}
+
+.photo-container {
+    padding: 2rem 1rem;
+    max-width: 92%;
+}
+
+.photo-block {
+    padding: 1.5rem 1rem;
+    margin: 2rem auto;
+}
+
+br.pc-only {
+    display: none;
+}
+
+.photo-block p {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
+    padding: 0 1rem;
+    max-width: 92%;
+    margin: 0 auto;
+}
+
+.intro {
+    padding: 0 1.2rem;
+    text-align: left;
+}
+
+.intro p,
+.section-description {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.sub-title {
+    font-size: 1.6rem;
+}
+
+.places {
+    padding: 1.2rem;
+}
+
+.place-name {
+    font-size: 1.2rem;
+}
+
+body.nav-open .map-image-container {
+    display: flex;
+}
+
+.map-image-container {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 300px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#hover-map-image {
+    display: none;
+    position: fixed;
+    bottom: 25%;
+    top: auto;
+    width: 220px;
+    max-width: 80vw;
+    border-radius: 0.5rem;
+    z-index: 9999;
+}
+
+#hover-map-image.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.photo-block p{
+    text-align: left !important;
+    font-size: clamp(16px, 3.9vw, 17px) !important;
+    line-height: 2.0 !important;
+    letter-spacing: 0.01em !important;
+    word-break: normal !important;
+    white-space: normal !important;
+    line-break: strict;
+    text-wrap: pretty;
+
+    width: 92% !important;
+    max-width: 26em !important;
+    margin: 1.1em auto !important;
+    padding-inline: .6rem;
+}
+
+.photo-block p br{
+    display: block !important;
+    content: "" !important;
+    height: .45em !important;
+}
+
+.pc-lines .line{
+    display: inline !important;
+    white-space: normal !important;
+}
+.pc-lines .line:not(:last-child)::after{ content:" "; }
+}
+
+@media (max-width: 480px) {
+.wrapper {
+    width: 100% !important;
+    overflow-x: hidden;
+    display: block !important;
+}
+
+.demo-gallery {
+    padding: 0 !important;
+    margin: 0 auto;
+}
+
+.demo-gallery .wrapper {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.demo-gallery li {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 1.5rem;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.demo-gallery img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: unset !important;
+    display: block !important;
+}
+
+.photo-container {
+    padding: 2rem 1rem;
+    max-width: 92%;
+}
+
+.photo-block {
+    padding:1rem;
+    margin: 1.5rem auto;
+}
+
+.intro {
+    padding: 0 1.2rem;
+    text-align: left;
+}
+
+
+.intro p,
+.section-description {
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.photo-block p{
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.sub-title {
+    font-size: 1.3rem;
+}
+
+    .places {
+    padding: 1.2rem;
+}
+
+    .place-name {
+    font-size: 1rem;
+}
+}
